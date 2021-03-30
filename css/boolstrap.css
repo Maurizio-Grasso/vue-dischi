@@ -193,7 +193,6 @@ Utilities
 
 .btn.btn-large {
     padding: calc(var(--spacing-standard) * 2 ) calc(var(--spacing-standard) * 4 ) calc(var(--spacing-standard) * 2 );
-    font-size: 2em;
     line-height: 1.2em;
 }
 

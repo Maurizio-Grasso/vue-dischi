@@ -5,6 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
+    <!-- Google Font Roboto -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"> 
 
     <!-- VueJS -->
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
@@ -23,22 +26,35 @@
     <div id="root" class="outer-wrapper">
 
         <header class="header bg-primary">
-            <div class="inner-header">
+            <div class="inner-header flex-container inner-wrapper text-center">
+
                 <div class="outer-logo padding-standard">
                     <img src="img/spotify_logo.png" alt="" class="logo">
+                </div><!-- Outer Logo END -->
+
+                <div class="outer-select padding-standard bg-primary">
+                    <label for="select-genre" class="margin-r-standard text-white">Filtra per Genere</label>
+                        <select class="padding-l-more padding-r-more padding-t-standard padding-b-standard" name="" id="select-genre" v-model="selectedGenre">
+                            <option v-for="genre in genresAll" :value="genre">{{ genre }}</option>
+                        </select>
+                </div><!-- Outer Select END -->
+
+                <div class="outer-button padding-standard">
+                    <button @click="orderAlbums()" class="padding-l-more padding-r-more padding-t-standard padding-b-standard text-white">Ordina per Anno</button>
                 </div>
+
             </div><!-- Inner Header END-->
         </header>
 
         <main class="main">
-            <div class="flex-container outer-card-container">
+            <div class="outer-card-container flex-container inner-wrapper padding-standard">
 
-                <div v-for="album in albumsAll" class="single-card-outer flex-container bg-primary padding-standard margin-standard text-center">
+                <div v-for="album in albumsAll" v-if=" (selectedGenre == album.genre) || (selectedGenre == genresAll[0])" class="single-card-outer flex-container bg-primary padding-standard margin-b-standard text-center">
                     
                     <img class="album-cover" :src="album.poster" alt="not available">
-                    <h3 class="album-title">{{ album.title }}</h3>
-                    <span class="album-artist">{{ album.author }}</span>
-                    <span class="album-year">{{ album.year }}</span>
+                    <h3 class="album-title text-white margin-t-standard">{{ album.title }}</h3>
+                    <span class="album-artist margin-t-standard">{{ album.author }}</span>
+                    <span class="album-year margin-t-standard">{{ album.year }}</span>
 
                 </div>
             </div><!-- Outer Card Container END-->
