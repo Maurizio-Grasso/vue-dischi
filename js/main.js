@@ -37,39 +37,11 @@ var app = new Vue ({
 
                 tmpArray.push(this.albumsAll[minIndex]);
                 this.albumsAll.splice(minIndex,1);
-
             }
 
             this.albumsAll = tmpArray;
 
         } ,
-
-        // orderAlbums() {
-        //     var tmpArray = [];
-        //     var minYear; 
-        //     var minIndex; 
-            
-
-        //     while(this.albumsAll.length > 0 ) {
-
-        //         minIndex = 0;
-        //         minYear = this.albumsAll[0].year;
-
-        //         this.albumsAll.forEach((album , index) => {                    
-        //             if(parseInt(album.year) < minYear) {
-        //                 minYear = parseInt(album.year);
-        //                 minIndex = index;
-        //             }    
-        //         });
-
-        //         tmpArray.push(this.albumsAll[minIndex]);
-        //         this.albumsAll.splice(minIndex,1);
-
-        //     }
-
-        //     this.albumsAll = tmpArray;
-
-        // }
     }
 });
 

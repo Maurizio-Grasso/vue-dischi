@@ -35,6 +35,10 @@ H E A D E R
     max-height: 100%;
 }
 
+.header .outer-select {
+    border-radius: .5rem;
+}
+
 .header button {
     background-color: #1e2d3b;
     border: 1px solid white;
